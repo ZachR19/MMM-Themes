@@ -14,8 +14,8 @@ Pre-built themes for MagicMirror2, designed to be interchangeable with a variety
 2. Update your `~/MagicMirror/config/custom.css` file to import the theme and configure your custom styles. Adjust the theme imports and CSS variables to match your preferred styling:
 
 ```css
-@import url("../css/themes/mm-<YOUR-DESIRED-THEME>.css");
-@import url("../css/themes/mm-components.css");
+@import url("../css/MMM-Themes/themes/mm-<YOUR-DESIRED-THEME>.css");
+@import url("../css/MMM-Themes/themes/mm-components.css");
 
 :root {
   --color-text: var(--mm-text);
