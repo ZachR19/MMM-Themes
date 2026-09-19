@@ -1,0 +1,299 @@
+/* ==========================================================================
+   MagicMirror² theme: Cyberpunk
+   Neon magenta and cyan on deep violet, sharp corners, glowing edges.
+   Every theme defines the same variable names, so any module written against them works with any theme. 
+   Load globally via :root, or scope to an element with class .mm-theme-cyberpunk.
+   ========================================================================== */
+
+:root,
+.mm-theme-cyberpunk {
+  color-scheme: dark;
+
+  /* ---- Identity ---------------------------------------------------------- */
+  --mm-theme-name: "cyberpunk";
+  --mm-theme-scheme: dark;
+
+  /* ---- Base & surfaces (depth: sunken < bg < 1 < 2 < 3 < 4) -------------- */
+  --mm-bg: #000000;  /* page / mirror background */
+  --mm-surface-sunken: #05020c;  /* wells, inset areas, input fields */
+  --mm-surface-1: #0f0a1f;  /* module body, cards */
+  --mm-surface-2: #17102e;  /* raised: nested cards, table header */
+  --mm-surface-3: #21173f;  /* floating: menus, popovers */
+  --mm-surface-4: #2c1f54;  /* top: modals, toasts */
+  --mm-surface-translucent: rgba(15, 10, 31, 0.72);  /* panel over images/video */
+  --mm-scrim: rgba(0, 0, 0, 0.6);  /* modal backdrop */
+
+  /* ---- Elevation --------------------------------------------------------- */
+  --mm-shadow-none: none;
+  --mm-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.6);
+  --mm-shadow-2: 0 2px 6px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.6);
+  --mm-shadow-3: 0 6px 16px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
+  --mm-shadow-4: 0 12px 32px rgba(0, 0, 0, 0.9), 0 4px 8px rgba(0, 0, 0, 0.7);
+  --mm-glow: 0 0 6px rgba(255, 43, 214, 0.55), 0 0 14px rgba(255, 43, 214, 0.25);
+  --mm-glow-strong: 0 0 8px rgba(255, 43, 214, 0.8), 0 0 24px rgba(255, 43, 214, 0.45), 0 0 48px rgba(0, 234, 255, 0.2);
+  --mm-text-glow: 0 0 6px rgba(255, 43, 214, 0.6);
+
+  /* ---- Text -------------------------------------------------------------- */
+  --mm-text: #cfc8ec;  /* default body text */
+  --mm-text-bright: #f7f3ff;  /* headings, key values (clock, temp) */
+  --mm-text-muted: #9187bf;  /* secondary info, labels */
+  --mm-text-dimmed: #5c5485;  /* tertiary, disabled, timestamps */
+  --mm-text-inverse: #07030f;  /* text on bright/solid fills */
+  --mm-text-link: #ff2bd6;
+  --mm-text-link-hover: #ff55de;
+  --mm-highlight-bg: rgba(247, 239, 0, 0.28);  /* mark / search hit */
+  --mm-highlight-text: #f7f3ff;
+  --mm-selection-bg: #ff2bd6;
+  --mm-selection-text: #07030f;
+
+  /* ---- Primary ----------------------------------------------------------- */
+  --mm-primary: #ff2bd6;
+  --mm-primary-hover: #ff55de;
+  --mm-primary-active: #cc22ab;
+  --mm-primary-subtle: #3a1040;  /* tinted background */
+  --mm-primary-border: #9f1e8d;
+  --mm-primary-contrast: #0a0010;  /* text on solid primary */
+
+  /* ---- Secondary --------------------------------------------------------- */
+  --mm-secondary: #00eaff;
+  --mm-secondary-hover: #33eeff;
+  --mm-secondary-active: #00bbcc;
+  --mm-secondary-subtle: #0c3247;  /* tinted background */
+  --mm-secondary-border: #0690a5;
+  --mm-secondary-contrast: #00121a;  /* text on solid secondary */
+
+  /* ---- Accent ------------------------------------------------------------ */
+  --mm-accent: #f7ef00;
+  --mm-accent-hover: #f9f233;
+  --mm-accent-active: #c6bf00;
+  --mm-accent-subtle: #393319;  /* tinted background */
+  --mm-accent-border: #9a930c;
+  --mm-accent-contrast: #141200;  /* text on solid accent */
+
+  /* ---- Status (solid, -text readable on surfaces, -subtle bg, -border, -contrast on solid) ---- */
+  --mm-success: #39ff88;
+  --mm-success-hover: #61ffa0;
+  --mm-success-text: #7bffb0;
+  --mm-success-subtle: #173632;
+  --mm-success-border: #289d5e;
+  --mm-success-contrast: #001a0b;
+  --mm-warning: #ffb300;
+  --mm-warning-hover: #ffc233;
+  --mm-warning-text: #ffcb4d;
+  --mm-warning-subtle: #3a2819;
+  --mm-warning-border: #9f6f0c;
+  --mm-warning-contrast: #1a1100;
+  --mm-error: #ff1f55;
+  --mm-error-hover: #ff4c77;
+  --mm-error-text: #ff6b8f;
+  --mm-error-subtle: #3a0e29;
+  --mm-error-border: #9f173f;
+  --mm-error-contrast: #1a0008;
+  --mm-info: #00b8ff;
+  --mm-info-hover: #33c6ff;
+  --mm-info-text: #5cd3ff;
+  --mm-info-subtle: #0c2947;
+  --mm-info-border: #0672a5;
+  --mm-info-contrast: #00121a;
+  --mm-neutral: #8a7fc0;
+  --mm-neutral-hover: #a199cd;
+  --mm-neutral-text: #b6addf;
+  --mm-neutral-subtle: #251f3c;
+  --mm-neutral-border: #595080;
+  --mm-neutral-contrast: #07030f;
+  --mm-danger: var(--mm-error);  /* alias */
+  --mm-critical: var(--mm-error);  /* alias */
+
+  /* ---- Borders, dividers, focus ------------------------------------------ */
+  --mm-border: #3a2a6e;
+  --mm-border-subtle: #241a47;
+  --mm-border-strong: #7a55e0;
+  --mm-divider: #241a47;
+  --mm-border-width: 1px;
+  --mm-border-width-thick: 2px;
+  --mm-border-style: solid;
+  --mm-focus-ring: #00eaff;
+  --mm-focus-ring-width: 2px;
+  --mm-focus-ring-offset: 2px;
+
+  /* ---- Radius ------------------------------------------------------------ */
+  --mm-radius-sm: 0px;
+  --mm-radius-md: 2px;
+  --mm-radius-lg: 4px;
+  --mm-radius-xl: 6px;
+  --mm-radius-pill: 999px;
+  --mm-radius-round: 50%;
+
+  /* ---- Buttons ----------------------------------------------------------- */
+  --mm-btn-padding-y: 0.4em;
+  --mm-btn-padding-x: 1em;
+  --mm-btn-radius: var(--mm-radius-md);
+  --mm-btn-font-weight: var(--mm-font-weight-medium);
+  --mm-btn-primary-bg: var(--mm-primary);
+  --mm-btn-primary-text: var(--mm-primary-contrast);
+  --mm-btn-primary-border: var(--mm-primary);
+  --mm-btn-primary-hover-bg: var(--mm-primary-hover);
+  --mm-btn-primary-active-bg: var(--mm-primary-active);
+  --mm-btn-secondary-bg: var(--mm-surface-2);
+  --mm-btn-secondary-text: var(--mm-text-bright);
+  --mm-btn-secondary-border: var(--mm-border-strong);
+  --mm-btn-secondary-hover-bg: var(--mm-surface-3);
+  --mm-btn-secondary-active-bg: var(--mm-surface-4);
+  --mm-btn-ghost-bg: transparent;
+  --mm-btn-ghost-text: var(--mm-text);
+  --mm-btn-ghost-border: transparent;
+  --mm-btn-ghost-hover-bg: var(--mm-primary-subtle);
+  --mm-btn-ghost-active-bg: var(--mm-surface-3);
+  --mm-btn-danger-bg: var(--mm-error);
+  --mm-btn-danger-text: var(--mm-error-contrast);
+  --mm-btn-danger-border: var(--mm-error);
+  --mm-btn-danger-hover-bg: var(--mm-error-hover);
+  --mm-btn-danger-active-bg: var(--mm-error-hover);
+  --mm-btn-disabled-bg: var(--mm-surface-2);
+  --mm-btn-disabled-text: var(--mm-text-dimmed);
+  --mm-btn-disabled-border: var(--mm-border-subtle);
+
+  /* ---- Form controls ----------------------------------------------------- */
+  --mm-input-bg: var(--mm-surface-sunken);
+  --mm-input-text: var(--mm-text-bright);
+  --mm-input-placeholder: var(--mm-text-dimmed);
+  --mm-input-border: var(--mm-border);
+  --mm-input-border-hover: var(--mm-border-strong);
+  --mm-input-border-focus: var(--mm-focus-ring);
+  --mm-input-disabled-bg: var(--mm-surface-1);
+  --mm-input-radius: var(--mm-radius-md);
+  --mm-toggle-track-off: var(--mm-border-strong);
+  --mm-toggle-track-on: var(--mm-primary);
+  --mm-toggle-thumb: #f7f3ff;
+  --mm-checkbox-checked: var(--mm-primary);
+  --mm-checkbox-mark: var(--mm-primary-contrast);
+
+  /* ---- Tables & lists ---------------------------------------------------- */
+  --mm-table-bg: transparent;
+  --mm-table-text: var(--mm-text);
+  --mm-table-header-bg: var(--mm-surface-2);
+  --mm-table-header-text: var(--mm-text-bright);
+  --mm-table-border: var(--mm-border);
+  --mm-table-border-inner: var(--mm-border-subtle);
+  --mm-table-border-width: var(--mm-border-width);
+  --mm-table-header-border-width: var(--mm-border-width-thick);
+  --mm-table-row-alt-bg: rgba(247, 243, 255, 0.035);
+  --mm-table-row-hover-bg: var(--mm-primary-subtle);
+  --mm-table-row-selected-bg: var(--mm-primary-subtle);
+  --mm-table-row-selected-border: var(--mm-primary);
+  --mm-table-cell-padding-y: 0.35em;
+  --mm-table-cell-padding-x: 0.6em;
+  --mm-list-divider: var(--mm-divider);
+  --mm-list-marker: var(--mm-text-muted);
+
+  /* ---- Components -------------------------------------------------------- */
+  --mm-card-bg: var(--mm-surface-1);
+  --mm-card-border: var(--mm-border-subtle);
+  --mm-card-shadow: var(--mm-glow);
+  --mm-card-radius: var(--mm-radius-lg);
+  --mm-card-padding: var(--mm-space-4);
+  --mm-header-text: var(--mm-text-muted);  /* MM module header */
+  --mm-header-border: var(--mm-border);
+  --mm-badge-bg: var(--mm-surface-3);
+  --mm-badge-text: var(--mm-text-bright);
+  --mm-badge-radius: var(--mm-radius-pill);
+  --mm-tooltip-bg: #2c1f54;
+  --mm-tooltip-text: #f7f3ff;
+  --mm-progress-track: var(--mm-surface-3);
+  --mm-progress-fill: var(--mm-primary);
+  --mm-progress-height: 0.4em;
+  --mm-skeleton-base: var(--mm-surface-2);
+  --mm-skeleton-shine: var(--mm-surface-3);
+  --mm-scrollbar-track: transparent;
+  --mm-scrollbar-thumb: var(--mm-border-strong);
+  --mm-icon: var(--mm-text);
+  --mm-icon-muted: var(--mm-text-dimmed);
+  --mm-icon-bright: var(--mm-text-bright);
+
+  /* ---- Data visualisation ------------------------------------------------ */
+  --mm-chart-1: #ff2bd6;
+  --mm-chart-2: #00eaff;
+  --mm-chart-3: #f7ef00;
+  --mm-chart-4: #39ff88;
+  --mm-chart-5: #ff7a1a;
+  --mm-chart-6: #9d5cff;
+  --mm-chart-7: #ff1f55;
+  --mm-chart-8: #5cffea;
+  --mm-chart-grid: var(--mm-border-subtle);
+  --mm-chart-axis: var(--mm-border-strong);
+  --mm-chart-label: var(--mm-text-muted);
+  --mm-chart-fill-opacity: 0.25;
+
+  /* ---- MagicMirror domain (weather, calendar, clock, news) --------------- */
+  --mm-temp-hot: #ff1f55;
+  --mm-temp-warm: #ff7a1a;
+  --mm-temp-mild: #f7ef00;
+  --mm-temp-cool: #00eaff;
+  --mm-temp-cold: #9d5cff;
+  --mm-weather-sun: #f7ef00;
+  --mm-weather-cloud: #9187bf;
+  --mm-weather-rain: #00eaff;
+  --mm-weather-snow: #e8f9ff;
+  --mm-weather-storm: #ff2bd6;
+  --mm-weather-fog: #5c5485;
+  --mm-calendar-today: var(--mm-primary);
+  --mm-calendar-today-bg: var(--mm-primary-subtle);
+  --mm-calendar-event: var(--mm-text);
+  --mm-calendar-event-soon: var(--mm-warning-text);
+  --mm-calendar-event-past: var(--mm-text-dimmed);
+  --mm-calendar-holiday: var(--mm-accent);
+  --mm-clock-time: var(--mm-text-bright);
+  --mm-clock-seconds: var(--mm-text-dimmed);
+  --mm-clock-date: var(--mm-text-muted);
+  --mm-news-source: var(--mm-text-muted);
+  --mm-news-headline: var(--mm-text-bright);
+
+  /* ---- Typography -------------------------------------------------------- */
+  --mm-font-primary: "Rajdhani", "Orbitron", "Roboto Condensed", sans-serif;  /* headings, display values */
+  --mm-font-secondary: "Rajdhani", "Roboto Condensed", sans-serif;  /* body */
+  --mm-font-mono: "Share Tech Mono", "Roboto Mono", Consolas, monospace;
+  --mm-font-size: 20px;  /* root size used by MM layout */
+  --mm-font-size-xs: 0.75rem;
+  --mm-font-size-sm: 1rem;
+  --mm-font-size-md: 1.5rem;
+  --mm-font-size-lg: 3.25rem;
+  --mm-font-size-xl: 3.75rem;
+  --mm-font-weight-light: 300;
+  --mm-font-weight-regular: 400;
+  --mm-font-weight-medium: 500;
+  --mm-font-weight-bold: 700;
+  --mm-line-height-tight: 1.1;
+  --mm-line-height: 1.35;
+  --mm-heading-letter-spacing: 0.1em;
+  --mm-heading-transform: uppercase;
+
+  /* ---- Spacing & layout -------------------------------------------------- */
+  --mm-space-0: 2px;
+  --mm-space-1: 4px;
+  --mm-space-2: 8px;
+  --mm-space-3: 12px;
+  --mm-space-4: 16px;
+  --mm-space-5: 24px;
+  --mm-space-6: 32px;
+  --mm-gap-modules: 30px;
+  --mm-gap-body: 60px;
+
+  /* ---- Motion & opacity -------------------------------------------------- */
+  --mm-duration-fast: 80ms;
+  --mm-duration: 150ms;
+  --mm-duration-slow: 300ms;
+  --mm-easing: steps(4, end);
+  --mm-opacity-disabled: 0.45;
+  --mm-opacity-muted: 0.7;
+
+  /* ---- MagicMirror core aliases (default modules pick these up) -------- */
+  --color-text: var(--mm-text);
+  --color-text-dimmed: var(--mm-text-muted);
+  --color-text-bright: var(--mm-text-bright);
+  --color-background: var(--mm-bg);
+  --font-primary: var(--mm-font-primary);
+  --font-secondary: var(--mm-font-secondary);
+  --font-size: var(--mm-font-size);
+  --font-size-small: var(--mm-font-size-xs);
+  --gap-modules: var(--mm-gap-modules);
+}

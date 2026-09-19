@@ -1,0 +1,307 @@
+/* ==========================================================================
+   MagicMirror² theme: Fallout
+   Retro computer CRT: green phosphor on black, inverted section headers, scanlines.
+   Every theme defines the same variable names, so any module written against them works with any theme.
+   Load globally via :root, or scope to an element with class .mm-theme-fallout.
+   ========================================================================== */
+
+:root,
+.mm-theme-fallout {
+  color-scheme: dark;
+
+  /* ---- Identity ---------------------------------------------------------- */
+  --mm-theme-name: "fallout";
+  --mm-theme-scheme: dark;
+
+  /* ---- Base & surfaces (depth: sunken < bg < 1 < 2 < 3 < 4) -------------- */
+  --mm-bg: #000000;  /* page / mirror background */
+  --mm-surface-sunken: #000000;  /* wells, inset areas, input fields */
+  --mm-surface-1: #03120a;  /* module body, cards */
+  --mm-surface-2: #062014;  /* raised: nested cards, table header */
+  --mm-surface-3: #0a2c1c;  /* floating: menus, popovers */
+  --mm-surface-4: #0f3a25;  /* top: modals, toasts */
+  --mm-surface-translucent: rgba(3, 18, 10, 0.72);  /* panel over images/video */
+  --mm-scrim: rgba(0, 0, 0, 0.6);  /* modal backdrop */
+
+  /* ---- Atmosphere (v1.1: page art, surface texture, frosted glass) ------- */
+  --mm-bg-image: radial-gradient(ellipse at 50% 45%, rgba(32, 214, 111, 0.06), transparent 70%);  /* layer over --mm-bg on body */
+  --mm-surface-texture: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0px, rgba(0, 0, 0, 0.3) 1px, transparent 1px, transparent 3px);  /* background-image for panels */
+  --mm-surface-texture-size: auto;
+  --mm-backdrop-filter: none;  /* frosted-glass blur on panels */
+  --mm-surface-sheen: none;  /* inset edge highlight (box-shadow) */
+
+  /* ---- Elevation --------------------------------------------------------- */
+  --mm-shadow-none: none;
+  --mm-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --mm-shadow-2: 0 2px 6px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+  --mm-shadow-3: 0 6px 16px rgba(0, 0, 0, 0.7), 0 2px 4px rgba(0, 0, 0, 0.5);
+  --mm-shadow-4: 0 12px 32px rgba(0, 0, 0, 0.8), 0 4px 8px rgba(0, 0, 0, 0.6);
+  --mm-glow: 0 0 6px rgba(32, 214, 111, 0.55), 0 0 14px rgba(32, 214, 111, 0.25);
+  --mm-glow-strong: 0 0 8px rgba(32, 214, 111, 0.8), 0 0 24px rgba(32, 214, 111, 0.45), 0 0 48px rgba(32, 214, 111, 0.2);
+  --mm-text-glow: 0 0 6px rgba(32, 214, 111, 0.6);
+
+  /* ---- Text -------------------------------------------------------------- */
+  --mm-text: #20d66f;  /* default body text */
+  --mm-text-bright: #8dffbb;  /* headings, key values (clock, temp) */
+  --mm-text-muted: #17a857;  /* secondary info, labels */
+  --mm-text-dimmed: #0d6636;  /* tertiary, disabled, timestamps */
+  --mm-text-inverse: #03140b;  /* text on bright/solid fills */
+  --mm-text-link: var(--mm-text-bright);
+  --mm-text-link-hover: #ffffff;
+  --mm-highlight-bg: rgba(184, 255, 90, 0.28);  /* mark / search hit */
+  --mm-highlight-text: #8dffbb;
+  --mm-selection-bg: #20d66f;
+  --mm-selection-text: #03140b;
+
+  /* ---- Primary ----------------------------------------------------------- */
+  --mm-primary: #20d66f;
+  --mm-primary-hover: #63e29a;
+  --mm-primary-active: #1aab59;
+  --mm-primary-subtle: #09391e;  /* tinted background */
+  --mm-primary-border: #137e42;
+  --mm-primary-contrast: #03140b;  /* text on solid primary */
+
+  /* ---- Secondary --------------------------------------------------------- */
+  --mm-secondary: #1f3d5c;
+  --mm-secondary-hover: #62778d;
+  --mm-secondary-active: #19314a;
+  --mm-secondary-subtle: #091b1a;  /* tinted background */
+  --mm-secondary-border: #122a37;
+  --mm-secondary-contrast: #8dffbb;  /* text on solid secondary */
+
+  /* ---- Accent ------------------------------------------------------------ */
+  --mm-accent: #b8ff5a;
+  --mm-accent-hover: #cdff8c;
+  --mm-accent-active: #93cc48;
+  --mm-accent-subtle: #27411a;  /* tinted background */
+  --mm-accent-border: #679436;
+  --mm-accent-contrast: #0d1a00;  /* text on solid accent */
+
+  /* ---- Status (solid, -text readable on surfaces, -subtle bg, -border, -contrast on solid) ---- */
+  --mm-success: #20d66f;
+  --mm-success-hover: #63e29a;
+  --mm-success-text: #5cf29a;
+  --mm-success-subtle: #09391e;
+  --mm-success-border: #137e42;
+  --mm-success-contrast: #03140b;
+  --mm-warning: #d9e84a;
+  --mm-warning-hover: #e4ef80;
+  --mm-warning-text: #e8f27a;
+  --mm-warning-subtle: #2e3d17;
+  --mm-warning-border: #79882d;
+  --mm-warning-contrast: #1a1c00;
+  --mm-error: #ff6b4a;
+  --mm-error-hover: #ff9780;
+  --mm-error-text: #ff8f75;
+  --mm-error-subtle: #352417;
+  --mm-error-border: #8e432d;
+  --mm-error-contrast: #1a0500;
+  --mm-info: #4ad9c9;
+  --mm-info-hover: #80e4d9;
+  --mm-info-text: #7ae8dc;
+  --mm-info-subtle: #113a30;
+  --mm-info-border: #2a7f73;
+  --mm-info-contrast: #00211d;
+  --mm-neutral: #17a857;
+  --mm-neutral-hover: #5dc289;
+  --mm-neutral-text: #20d66f;
+  --mm-neutral-subtle: #073019;
+  --mm-neutral-border: #0e6434;
+  --mm-neutral-contrast: #03140b;
+  --mm-danger: var(--mm-error);  /* alias */
+  --mm-critical: var(--mm-error);  /* alias */
+
+  /* ---- Borders, dividers, focus ------------------------------------------ */
+  --mm-border: #17a857;
+  --mm-border-subtle: #0b4a2a;
+  --mm-border-strong: #20d66f;
+  --mm-divider: #0b4a2a;
+  --mm-border-width: 2px;
+  --mm-border-width-thick: 4px;
+  --mm-border-style: solid;
+  --mm-focus-ring: #20d66f;
+  --mm-focus-ring-width: 2px;
+  --mm-focus-ring-offset: 2px;
+
+  /* ---- Radius ------------------------------------------------------------ */
+  --mm-radius-sm: 0px;
+  --mm-radius-md: 0px;
+  --mm-radius-lg: 2px;
+  --mm-radius-xl: 4px;
+  --mm-radius-pill: 999px;
+  --mm-radius-round: 50%;
+
+  /* ---- Buttons ----------------------------------------------------------- */
+  --mm-btn-padding-y: 0.4em;
+  --mm-btn-padding-x: 1em;
+  --mm-btn-radius: var(--mm-radius-md);
+  --mm-btn-font-weight: var(--mm-font-weight-medium);
+  --mm-btn-primary-bg: var(--mm-primary);
+  --mm-btn-primary-text: var(--mm-primary-contrast);
+  --mm-btn-primary-border: var(--mm-primary);
+  --mm-btn-primary-hover-bg: var(--mm-primary-hover);
+  --mm-btn-primary-active-bg: var(--mm-primary-active);
+  --mm-btn-secondary-bg: transparent;
+  --mm-btn-secondary-text: var(--mm-text);
+  --mm-btn-secondary-border: var(--mm-border);
+  --mm-btn-secondary-hover-bg: var(--mm-primary-subtle);
+  --mm-btn-secondary-active-bg: var(--mm-surface-4);
+  --mm-btn-ghost-bg: transparent;
+  --mm-btn-ghost-text: var(--mm-text-muted);
+  --mm-btn-ghost-border: transparent;
+  --mm-btn-ghost-hover-bg: var(--mm-primary-subtle);
+  --mm-btn-ghost-active-bg: var(--mm-surface-3);
+  --mm-btn-danger-bg: var(--mm-error);
+  --mm-btn-danger-text: var(--mm-error-contrast);
+  --mm-btn-danger-border: var(--mm-error);
+  --mm-btn-danger-hover-bg: var(--mm-error-hover);
+  --mm-btn-danger-active-bg: var(--mm-error-hover);
+  --mm-btn-disabled-bg: var(--mm-surface-2);
+  --mm-btn-disabled-text: var(--mm-text-dimmed);
+  --mm-btn-disabled-border: var(--mm-border-subtle);
+
+  /* ---- Form controls ----------------------------------------------------- */
+  --mm-input-bg: var(--mm-surface-sunken);
+  --mm-input-text: var(--mm-text);
+  --mm-input-placeholder: var(--mm-text-dimmed);
+  --mm-input-border: var(--mm-border);
+  --mm-input-border-hover: var(--mm-border-strong);
+  --mm-input-border-focus: var(--mm-focus-ring);
+  --mm-input-disabled-bg: var(--mm-surface-1);
+  --mm-input-radius: var(--mm-radius-md);
+  --mm-toggle-track-off: var(--mm-border-strong);
+  --mm-toggle-track-on: var(--mm-primary);
+  --mm-toggle-thumb: var(--mm-primary-contrast);
+  --mm-checkbox-checked: var(--mm-primary);
+  --mm-checkbox-mark: var(--mm-primary-contrast);
+
+  /* ---- Tables & lists ---------------------------------------------------- */
+  --mm-table-bg: transparent;
+  --mm-table-text: var(--mm-text);
+  --mm-table-header-bg: var(--mm-primary);
+  --mm-table-header-text: var(--mm-primary-contrast);
+  --mm-table-border: var(--mm-border);
+  --mm-table-border-inner: var(--mm-border-subtle);
+  --mm-table-border-width: var(--mm-border-width);
+  --mm-table-header-border-width: var(--mm-border-width-thick);
+  --mm-table-row-alt-bg: rgba(141, 255, 187, 0.035);
+  --mm-table-row-hover-bg: var(--mm-primary-subtle);
+  --mm-table-row-selected-bg: var(--mm-primary-subtle);
+  --mm-table-row-selected-border: var(--mm-primary);
+  --mm-table-cell-padding-y: 0.35em;
+  --mm-table-cell-padding-x: 0.6em;
+  --mm-list-divider: var(--mm-divider);
+  --mm-list-marker: var(--mm-text-muted);
+
+  /* ---- Components -------------------------------------------------------- */
+  --mm-card-bg: var(--mm-surface-1);
+  --mm-card-border: var(--mm-border);
+  --mm-card-shadow: var(--mm-shadow-none);
+  --mm-card-radius: var(--mm-radius-lg);
+  --mm-card-padding: var(--mm-space-4);
+  --mm-header-bg: var(--mm-primary);  /* MM module header */
+  --mm-header-text: var(--mm-primary-contrast);
+  --mm-header-border: var(--mm-primary);
+  --mm-badge-bg: var(--mm-primary);
+  --mm-badge-text: var(--mm-primary-contrast);
+  --mm-badge-radius: var(--mm-radius-pill);
+  --mm-tooltip-bg: #0f3a25;
+  --mm-tooltip-text: #8dffbb;
+  --mm-progress-track: var(--mm-secondary);
+  --mm-progress-fill: var(--mm-primary);
+  --mm-progress-height: 0.4em;
+  --mm-skeleton-base: var(--mm-surface-2);
+  --mm-skeleton-shine: var(--mm-surface-3);
+  --mm-scrollbar-track: transparent;
+  --mm-scrollbar-thumb: var(--mm-border-strong);
+  --mm-icon: var(--mm-text);
+  --mm-icon-muted: var(--mm-text-dimmed);
+  --mm-icon-bright: var(--mm-text-bright);
+
+  /* ---- Data visualisation ------------------------------------------------ */
+  --mm-chart-1: #20d66f;
+  --mm-chart-2: #8dffbb;
+  --mm-chart-3: #0f9e50;
+  --mm-chart-4: #b8ff5a;
+  --mm-chart-5: #4ad9c9;
+  --mm-chart-6: #d9e84a;
+  --mm-chart-7: #1f7a4a;
+  --mm-chart-8: #c8ffe0;
+  --mm-chart-grid: var(--mm-border-subtle);
+  --mm-chart-axis: var(--mm-border-strong);
+  --mm-chart-label: var(--mm-text-muted);
+  --mm-chart-fill-opacity: 0.25;
+
+  /* ---- MagicMirror domain (weather, calendar, clock, news) --------------- */
+  --mm-temp-hot: #ff6b4a;
+  --mm-temp-warm: #d9e84a;
+  --mm-temp-mild: #20d66f;
+  --mm-temp-cool: #4ad9c9;
+  --mm-temp-cold: #9ff0ff;
+  --mm-weather-sun: #d9e84a;
+  --mm-weather-cloud: #17a857;
+  --mm-weather-rain: #4ad9c9;
+  --mm-weather-snow: #c8ffe0;
+  --mm-weather-storm: #8dffbb;
+  --mm-weather-fog: #0f7a42;
+  --mm-calendar-today: var(--mm-primary);
+  --mm-calendar-today-bg: var(--mm-primary-subtle);
+  --mm-calendar-event: var(--mm-text);
+  --mm-calendar-event-soon: var(--mm-warning-text);
+  --mm-calendar-event-past: var(--mm-text-dimmed);
+  --mm-calendar-holiday: var(--mm-accent);
+  --mm-clock-time: var(--mm-text-bright);
+  --mm-clock-seconds: var(--mm-text-dimmed);
+  --mm-clock-date: var(--mm-text-muted);
+  --mm-news-source: var(--mm-text-muted);
+  --mm-news-headline: var(--mm-text-bright);
+
+  /* ---- Typography -------------------------------------------------------- */
+  --mm-font-primary: "VT323", "Share Tech Mono", "Roboto Mono", monospace;  /* headings, display values */
+  --mm-font-secondary: "Share Tech Mono", "VT323", "Roboto Mono", monospace;  /* body */
+  --mm-font-mono: "Share Tech Mono", "VT323", "Roboto Mono", monospace;
+  --mm-font-size: 20px;  /* root size used by MM layout */
+  --mm-font-size-xs: 0.75rem;
+  --mm-font-size-sm: 1rem;
+  --mm-font-size-md: 1.5rem;
+  --mm-font-size-lg: 3.25rem;
+  --mm-font-size-xl: 3.75rem;
+  --mm-font-weight-light: 300;
+  --mm-font-weight-regular: 400;
+  --mm-font-weight-medium: 500;
+  --mm-font-weight-bold: 700;
+  --mm-line-height-tight: 1.05;
+  --mm-line-height: 1.3;
+  --mm-heading-letter-spacing: 0.08em;
+  --mm-heading-transform: uppercase;
+
+  /* ---- Spacing & layout -------------------------------------------------- */
+  --mm-space-0: 2px;
+  --mm-space-1: 4px;
+  --mm-space-2: 8px;
+  --mm-space-3: 12px;
+  --mm-space-4: 16px;
+  --mm-space-5: 24px;
+  --mm-space-6: 32px;
+  --mm-gap-modules: 30px;
+  --mm-gap-body: 60px;
+
+  /* ---- Motion & opacity -------------------------------------------------- */
+  --mm-duration-fast: 60ms;
+  --mm-duration: 120ms;
+  --mm-duration-slow: 250ms;
+  --mm-easing: steps(3, end);
+  --mm-opacity-disabled: 0.45;
+  --mm-opacity-muted: 0.7;
+
+  /* ---- MagicMirror core aliases (default modules pick these up) -------- */
+  --color-text: var(--mm-text);
+  --color-text-dimmed: var(--mm-text-muted);
+  --color-text-bright: var(--mm-text-bright);
+  --color-background: var(--mm-bg);
+  --font-primary: var(--mm-font-primary);
+  --font-secondary: var(--mm-font-secondary);
+  --font-size: var(--mm-font-size);
+  --font-size-small: var(--mm-font-size-xs);
+  --gap-modules: var(--mm-gap-modules);
+}

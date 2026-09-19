@@ -1,0 +1,299 @@
+/* ==========================================================================
+   MagicMirror² theme: Light
+   For plain wall displays and tablets (no mirror glass). Depth comes from shadows.
+   Every theme defines the same variable names, so any module written against them works with any theme.
+   Load globally via :root, or scope to an element with class .mm-theme-light.
+   ========================================================================== */
+
+:root,
+.mm-theme-light {
+  color-scheme: light;
+
+  /* ---- Identity ---------------------------------------------------------- */
+  --mm-theme-name: "light";
+  --mm-theme-scheme: light;
+
+  /* ---- Base & surfaces (depth: sunken < bg < 1 < 2 < 3 < 4) -------------- */
+  --mm-bg: #eef1f5;  /* page / mirror background */
+  --mm-surface-sunken: #e2e6ec;  /* wells, inset areas, input fields */
+  --mm-surface-1: #f8f9fb;  /* module body, cards */
+  --mm-surface-2: #ffffff;  /* raised: nested cards, table header */
+  --mm-surface-3: #ffffff;  /* floating: menus, popovers */
+  --mm-surface-4: #ffffff;  /* top: modals, toasts */
+  --mm-surface-translucent: rgba(248, 249, 251, 0.72);  /* panel over images/video */
+  --mm-scrim: rgba(16, 24, 40, 0.35);  /* modal backdrop */
+
+  /* ---- Elevation --------------------------------------------------------- */
+  --mm-shadow-none: none;
+  --mm-shadow-1: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --mm-shadow-2: 0 2px 6px rgba(16, 24, 40, 0.09), 0 1px 2px rgba(16, 24, 40, 0.06);
+  --mm-shadow-3: 0 6px 16px rgba(16, 24, 40, 0.12), 0 2px 4px rgba(16, 24, 40, 0.06);
+  --mm-shadow-4: 0 12px 32px rgba(16, 24, 40, 0.16), 0 4px 8px rgba(16, 24, 40, 0.09);
+  --mm-glow: none;
+  --mm-glow-strong: none;
+  --mm-text-glow: none;
+
+  /* ---- Text -------------------------------------------------------------- */
+  --mm-text: #2c323c;  /* default body text */
+  --mm-text-bright: #0a0e14;  /* headings, key values (clock, temp) */
+  --mm-text-muted: #5d6674;  /* secondary info, labels */
+  --mm-text-dimmed: #9aa2ae;  /* tertiary, disabled, timestamps */
+  --mm-text-inverse: #ffffff;  /* text on bright/solid fills */
+  --mm-text-link: #2059c1;
+  --mm-text-link-hover: #194596;
+  --mm-highlight-bg: rgba(8, 119, 143, 0.28);  /* mark / search hit */
+  --mm-highlight-text: #0a0e14;
+  --mm-selection-bg: #2463d6;
+  --mm-selection-text: #ffffff;
+
+  /* ---- Primary ----------------------------------------------------------- */
+  --mm-primary: #2463d6;
+  --mm-primary-hover: #2057bc;
+  --mm-primary-active: #1b4ba3;
+  --mm-primary-subtle: #e3eaf7;  /* tinted background */
+  --mm-primary-border: #aec4ee;
+  --mm-primary-contrast: #ffffff;  /* text on solid primary */
+
+  /* ---- Secondary --------------------------------------------------------- */
+  --mm-secondary: #7342d6;
+  --mm-secondary-hover: #653abc;
+  --mm-secondary-active: #5732a3;
+  --mm-secondary-subtle: #ebe7f7;  /* tinted background */
+  --mm-secondary-border: #c9b9ee;
+  --mm-secondary-contrast: #ffffff;  /* text on solid secondary */
+
+  /* ---- Accent ------------------------------------------------------------ */
+  --mm-accent: #08778f;
+  --mm-accent-hover: #07697e;
+  --mm-accent-active: #065a6d;
+  --mm-accent-subtle: #e0ecf0;  /* tinted background */
+  --mm-accent-border: #a4ccd5;
+  --mm-accent-contrast: #ffffff;  /* text on solid accent */
+
+  /* ---- Status (solid, -text readable on surfaces, -subtle bg, -border, -contrast on solid) ---- */
+  --mm-success: #1a7f44;
+  --mm-success-hover: #17703c;
+  --mm-success-text: #16703b;
+  --mm-success-subtle: #e2ede9;
+  --mm-success-border: #aacebb;
+  --mm-success-contrast: #ffffff;
+  --mm-warning: #e09c1a;
+  --mm-warning-hover: #c58917;
+  --mm-warning-text: #8f5a00;
+  --mm-warning-subtle: #f6f0e4;
+  --mm-warning-border: #f0d8ac;
+  --mm-warning-contrast: #1f1400;
+  --mm-error: #d62f2f;
+  --mm-error-hover: #bc2929;
+  --mm-error-text: #b02020;
+  --mm-error-subtle: #f5e5e7;
+  --mm-error-border: #ecb2b4;
+  --mm-error-contrast: #ffffff;
+  --mm-info: #1b72ae;
+  --mm-info-hover: #186499;
+  --mm-info-text: #16669e;
+  --mm-info-subtle: #e2ecf3;
+  --mm-info-border: #abcae0;
+  --mm-info-contrast: #ffffff;
+  --mm-neutral: #6b7380;
+  --mm-neutral-hover: #5e6571;
+  --mm-neutral-text: #4a515c;
+  --mm-neutral-subtle: #eaecef;
+  --mm-neutral-border: #c7cad0;
+  --mm-neutral-contrast: #ffffff;
+  --mm-danger: var(--mm-error);  /* alias */
+  --mm-critical: var(--mm-error);  /* alias */
+
+  /* ---- Borders, dividers, focus ------------------------------------------ */
+  --mm-border: #d3d9e1;
+  --mm-border-subtle: #e4e8ee;
+  --mm-border-strong: #a9b2bf;
+  --mm-divider: #e4e8ee;
+  --mm-border-width: 1px;
+  --mm-border-width-thick: 2px;
+  --mm-border-style: solid;
+  --mm-focus-ring: #2463d6;
+  --mm-focus-ring-width: 2px;
+  --mm-focus-ring-offset: 2px;
+
+  /* ---- Radius ------------------------------------------------------------ */
+  --mm-radius-sm: 4px;
+  --mm-radius-md: 8px;
+  --mm-radius-lg: 12px;
+  --mm-radius-xl: 18px;
+  --mm-radius-pill: 999px;
+  --mm-radius-round: 50%;
+
+  /* ---- Buttons ----------------------------------------------------------- */
+  --mm-btn-padding-y: 0.4em;
+  --mm-btn-padding-x: 1em;
+  --mm-btn-radius: var(--mm-radius-md);
+  --mm-btn-font-weight: var(--mm-font-weight-medium);
+  --mm-btn-primary-bg: var(--mm-primary);
+  --mm-btn-primary-text: var(--mm-primary-contrast);
+  --mm-btn-primary-border: var(--mm-primary);
+  --mm-btn-primary-hover-bg: var(--mm-primary-hover);
+  --mm-btn-primary-active-bg: var(--mm-primary-active);
+  --mm-btn-secondary-bg: var(--mm-surface-2);
+  --mm-btn-secondary-text: var(--mm-text-bright);
+  --mm-btn-secondary-border: var(--mm-border-strong);
+  --mm-btn-secondary-hover-bg: var(--mm-surface-3);
+  --mm-btn-secondary-active-bg: var(--mm-surface-4);
+  --mm-btn-ghost-bg: transparent;
+  --mm-btn-ghost-text: var(--mm-text);
+  --mm-btn-ghost-border: transparent;
+  --mm-btn-ghost-hover-bg: var(--mm-primary-subtle);
+  --mm-btn-ghost-active-bg: var(--mm-surface-3);
+  --mm-btn-danger-bg: var(--mm-error);
+  --mm-btn-danger-text: var(--mm-error-contrast);
+  --mm-btn-danger-border: var(--mm-error);
+  --mm-btn-danger-hover-bg: var(--mm-error-hover);
+  --mm-btn-danger-active-bg: var(--mm-error-hover);
+  --mm-btn-disabled-bg: var(--mm-surface-2);
+  --mm-btn-disabled-text: var(--mm-text-dimmed);
+  --mm-btn-disabled-border: var(--mm-border-subtle);
+
+  /* ---- Form controls ----------------------------------------------------- */
+  --mm-input-bg: var(--mm-surface-2);
+  --mm-input-text: var(--mm-text-bright);
+  --mm-input-placeholder: var(--mm-text-dimmed);
+  --mm-input-border: var(--mm-border);
+  --mm-input-border-hover: var(--mm-border-strong);
+  --mm-input-border-focus: var(--mm-focus-ring);
+  --mm-input-disabled-bg: var(--mm-surface-1);
+  --mm-input-radius: var(--mm-radius-md);
+  --mm-toggle-track-off: var(--mm-border-strong);
+  --mm-toggle-track-on: var(--mm-primary);
+  --mm-toggle-thumb: #ffffff;
+  --mm-checkbox-checked: var(--mm-primary);
+  --mm-checkbox-mark: var(--mm-primary-contrast);
+
+  /* ---- Tables & lists ---------------------------------------------------- */
+  --mm-table-bg: transparent;
+  --mm-table-text: var(--mm-text);
+  --mm-table-header-bg: var(--mm-surface-2);
+  --mm-table-header-text: var(--mm-text-bright);
+  --mm-table-border: var(--mm-border);
+  --mm-table-border-inner: var(--mm-border-subtle);
+  --mm-table-border-width: var(--mm-border-width);
+  --mm-table-header-border-width: var(--mm-border-width-thick);
+  --mm-table-row-alt-bg: rgba(16, 24, 40, 0.035);
+  --mm-table-row-hover-bg: var(--mm-primary-subtle);
+  --mm-table-row-selected-bg: var(--mm-primary-subtle);
+  --mm-table-row-selected-border: var(--mm-primary);
+  --mm-table-cell-padding-y: 0.35em;
+  --mm-table-cell-padding-x: 0.6em;
+  --mm-list-divider: var(--mm-divider);
+  --mm-list-marker: var(--mm-text-muted);
+
+  /* ---- Components -------------------------------------------------------- */
+  --mm-card-bg: var(--mm-surface-1);
+  --mm-card-border: var(--mm-border-subtle);
+  --mm-card-shadow: var(--mm-shadow-2);
+  --mm-card-radius: var(--mm-radius-lg);
+  --mm-card-padding: var(--mm-space-4);
+  --mm-header-text: var(--mm-text-muted);  /* MM module header */
+  --mm-header-border: var(--mm-border);
+  --mm-badge-bg: var(--mm-surface-3);
+  --mm-badge-text: var(--mm-text-bright);
+  --mm-badge-radius: var(--mm-radius-pill);
+  --mm-tooltip-bg: #0a0e14;
+  --mm-tooltip-text: #ffffff;
+  --mm-progress-track: var(--mm-surface-3);
+  --mm-progress-fill: var(--mm-primary);
+  --mm-progress-height: 0.4em;
+  --mm-skeleton-base: var(--mm-surface-2);
+  --mm-skeleton-shine: var(--mm-surface-3);
+  --mm-scrollbar-track: transparent;
+  --mm-scrollbar-thumb: var(--mm-border-strong);
+  --mm-icon: var(--mm-text);
+  --mm-icon-muted: var(--mm-text-dimmed);
+  --mm-icon-bright: var(--mm-text-bright);
+
+  /* ---- Data visualisation ------------------------------------------------ */
+  --mm-chart-1: #2463d6;
+  --mm-chart-2: #1d8a4a;
+  --mm-chart-3: #e09c1a;
+  --mm-chart-4: #d62f2f;
+  --mm-chart-5: #7342d6;
+  --mm-chart-6: #0b8aa6;
+  --mm-chart-7: #c2418a;
+  --mm-chart-8: #6b7a1f;
+  --mm-chart-grid: var(--mm-border-subtle);
+  --mm-chart-axis: var(--mm-border-strong);
+  --mm-chart-label: var(--mm-text-muted);
+  --mm-chart-fill-opacity: 0.25;
+
+  /* ---- MagicMirror domain (weather, calendar, clock, news) --------------- */
+  --mm-temp-hot: #d62f2f;
+  --mm-temp-warm: #e07a1a;
+  --mm-temp-mild: #b8a200;
+  --mm-temp-cool: #1f7fc2;
+  --mm-temp-cold: #5566d6;
+  --mm-weather-sun: #e0a100;
+  --mm-weather-cloud: #8791a0;
+  --mm-weather-rain: #1f7fc2;
+  --mm-weather-snow: #7fa8d6;
+  --mm-weather-storm: #7342d6;
+  --mm-weather-fog: #a3abb7;
+  --mm-calendar-today: var(--mm-primary);
+  --mm-calendar-today-bg: var(--mm-primary-subtle);
+  --mm-calendar-event: var(--mm-text);
+  --mm-calendar-event-soon: var(--mm-warning-text);
+  --mm-calendar-event-past: var(--mm-text-dimmed);
+  --mm-calendar-holiday: var(--mm-accent);
+  --mm-clock-time: var(--mm-text-bright);
+  --mm-clock-seconds: var(--mm-text-dimmed);
+  --mm-clock-date: var(--mm-text-muted);
+  --mm-news-source: var(--mm-text-muted);
+  --mm-news-headline: var(--mm-text-bright);
+
+  /* ---- Typography -------------------------------------------------------- */
+  --mm-font-primary: "Roboto Condensed", "Arial Narrow", sans-serif;  /* headings, display values */
+  --mm-font-secondary: "Roboto", "Helvetica Neue", Arial, sans-serif;  /* body */
+  --mm-font-mono: "Roboto Mono", "SFMono-Regular", Consolas, monospace;
+  --mm-font-size: 20px;  /* root size used by MM layout */
+  --mm-font-size-xs: 0.75rem;
+  --mm-font-size-sm: 1rem;
+  --mm-font-size-md: 1.5rem;
+  --mm-font-size-lg: 3.25rem;
+  --mm-font-size-xl: 3.75rem;
+  --mm-font-weight-light: 300;
+  --mm-font-weight-regular: 400;
+  --mm-font-weight-medium: 500;
+  --mm-font-weight-bold: 700;
+  --mm-line-height-tight: 1.15;
+  --mm-line-height: 1.45;
+  --mm-heading-letter-spacing: 0.01em;
+  --mm-heading-transform: none;
+
+  /* ---- Spacing & layout -------------------------------------------------- */
+  --mm-space-0: 2px;
+  --mm-space-1: 4px;
+  --mm-space-2: 8px;
+  --mm-space-3: 12px;
+  --mm-space-4: 16px;
+  --mm-space-5: 24px;
+  --mm-space-6: 32px;
+  --mm-gap-modules: 30px;
+  --mm-gap-body: 60px;
+
+  /* ---- Motion & opacity -------------------------------------------------- */
+  --mm-duration-fast: 120ms;
+  --mm-duration: 200ms;
+  --mm-duration-slow: 400ms;
+  --mm-easing: cubic-bezier(0.2, 0, 0, 1);
+  --mm-opacity-disabled: 0.45;
+  --mm-opacity-muted: 0.7;
+
+  /* ---- MagicMirror core aliases (default modules pick these up) -------- */
+  --color-text: var(--mm-text);
+  --color-text-dimmed: var(--mm-text-muted);
+  --color-text-bright: var(--mm-text-bright);
+  --color-background: var(--mm-bg);
+  --font-primary: var(--mm-font-primary);
+  --font-secondary: var(--mm-font-secondary);
+  --font-size: var(--mm-font-size);
+  --font-size-small: var(--mm-font-size-xs);
+  --gap-modules: var(--mm-gap-modules);
+}
